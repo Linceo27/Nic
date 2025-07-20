@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NOTÍCIAS DA NIC</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .menu-topo {
+      background-color: #001f5e;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .menu-esquerda, .menu-direita {
+      flex: 1;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      flex: 1;
+    }
+
+    .menu-direita {
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    .assine {
+      background: yellow;
+      border: none;
+      padding: 5px 10px;
+      font-weight: bold;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .colunistas {
+      display: flex;
+      justify-content: space-around;
+      background-color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .colunista {
+      text-align: center;
+      width: 20%;
+      font-size: 0.85rem;
+    }
+
+    .colunista img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .principal {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .principal .categoria {
+      color: #0057b8;
+      font-weight: bold;
+    }
+
+    .principal h2 {
+      font-size: 2rem;
+      margin-top: 5px;
+      line-height: 1.3;
+    }
+
+    .principal p {
+      color: #444;
+    }
+
+    .destaque {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 30px;
+      text-align: center;
+    }
+
+    .destaque img {
+      width: 80%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .noticias-secundarias {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .noticia {
+      background-color: #fafafa;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    .noticia:hover {
+      transform: scale(1.02);
+    }
+
+  .noticia img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center top; /* Mostra o topo da imagem, ideal para rosto */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+    .noticia h4 {
+      color: #0057b8;
+      margin: 10px 0 5px;
+      font-size: 1rem;
+    }
+
+    .noticia p {
+      font-size: 0.9rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Topo -->
+  <header>
+    <div class="menu-topo">
+      <div class="menu-esquerda">Menu</div>
+      <div class="logo">NOTÍCIAS DA NIC</div>
+      <div class="menu-direita">
+        <button class="assine">ASSINE</button>
+        <span>Olá, Nicole Gomes...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Colunistas -->
+  <section class="colunistas">
+    <div class="colunista">
+      <img src="https://via.placeholder.com/60" alt="Colunista 1">
+      <p><strong>Bisexualidade</strong><br>Em meio à rusga com Tarcísio...</p>
+    </div>
+    <div class="colunista">
+      <img src="https://www.futbox.com/img/v1/c64/96f/803/8e1/6884ab0cd733ca344b32.png" alt="Bernardo">
+      <p><strong>Bernardo Mello Franco</strong><br>Ministro que amaciou com Bolsonaro...</p>
+    </div>
+    <div class="colunista">
+      <img src="https://via.placeholder.com/60" alt="Elio">
+      <p><strong>Elio Gaspari</strong><br>Os empresários erraram o alvo</p>
+    </div>
+    <div class="colunista">
+      <img src="https://via.placeholder.com/60" alt="Daniel">
+      <p><strong>Daniel Becker</strong><br>O uso indiscriminado dos antibióticos</p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    <section class="principal">
+      <span class="categoria">Situação agravada</span>
+      <h2>Nota de Esclarecimento: jovem divulga evento para o dia errado e, quando questionada, põe a culpa no TDAH "Confundi as coisas, mas tenho um bom coração"</h2>
+      <p>
+        Evento que pretende reunir amigos dos mais diversos ninchos (um total estimado de 15 pessoas) foi divulgado para o dia 08/08/2025, quando, na verdade, acontecerá no dia 09/08/2025, às 15h.
+        O local ainda está sob negociação. Questionada sobre os motivos pelo qual a data de divulgação foi divulgada erroneamente, mulher afirma que
+        <em>"não tomei ritalina, sou uma mulher de coração puro, tudo que eu faço é sem maldade".</em>
+      </p>
+    </section>
+
+    <!-- Imagem destaque -->
+    <section class="destaque">
+      <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/DSC00930.JPG?raw=true" alt="Nota de esclarecimento">
+    </section>
+
+    <!-- Notícias secundárias -->
+    <section class="noticias-secundarias">
+      <div class="noticia">
+        <h4>Amante de Sinuca, conversa de bar, cerveja gelada e decisões duvidosas.</h4>
+        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250128_183228.jpg?raw=true" alt="Sinuca">
+        <p>Desde 2023, após descobrir o <em><strong>Bar do Pinto</strong></em> com o meu então conhecido de Twitter, - que viria a se tornar um grande amigo e confidente - Gilberto (vulgo <em>Tigrinho da UFPE</em>),
+         adiquiri um sentimento de amor e familiaridade por aquele ambiente, não pela estrutura, obviamente, mas pelas possibilidades, diversidade de pessoas e conversas.  <br> <br> Mentir para desconhecidos enquanto tomo 
+         uma cerveja gelada, converso com os donos do bar e jogo sinuca com os meus amigos? Paraíso. Amo aquele lugar, exceto, é óbvio, nas sextas.... MALDITA SEJA A SUPERLOTAÇÃO E O TIKTOK!!!! <br> <br>
+         <b><em>Sair de alguma aula > encontrar os amigos no bar do pinto > sinuca + cerveja > rua da feira > caldinho em Dani</em></b>
+        </p>
+      </div>
+  <div class="noticia">
+        <h4>A Prisão do Inconsciente e a Coersão Social </h4>
+        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/DSC00935.JPG?raw=true" alt="Imagem 4">
+        <p>Este ano começou de forma átipica. No mundo, apenas um grupo seleto sabe do que estou falando. Não me arrependo. Mas teria outras formas de fazer o que fiz, talvez com um pouco mais de emoção e livre das amarras conscientes, inconcientes e sociais.</p>
+      </div>
+      <div class="noticia">
+        <h4>Ano de Conquistas</h4>
+        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/ULI_9843.JPG?raw=true" alt="Ano de conquistas">
+        <p>Durante esses vinte e tantos anos existindo, muitas coisas me ocorreram. Desde que entrei na UFPE, tudo se potencializou: amizades incríveis,
+          romances caóticos, amores platônicos e uma carreira nascendo aos poucos.
+        </p>
+      </div>
+     
+
+      <div class="noticia">
+        <h4>Estados Unidos</h4>
+        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250118_172417.jpg?raw=true" alt="Imagem 4">
+        <p>Pesquisas mostram queda do apoio à política migratória de Trump.</p>
+      </div>
+
+      <div class="noticia">
+        <h4>Presidente da Alerj</h4>
+        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250301_232333.jpg?raw=true" alt="Imagem 5">
+        <p>Investigação liga Baccelar a 'aluguel' de uma prefeitura.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
