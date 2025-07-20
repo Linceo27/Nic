@@ -63,11 +63,13 @@
     }
 
     .colunista img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+      width: 100%;
+      max-width: 80px;
+      height: auto;
+      border-radius: 6px;
       margin-bottom: 8px;
-      object-fit: cover;
+      object-fit: contain;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .container {
@@ -135,15 +137,14 @@
       transform: scale(1.02);
     }
 
-  .noticia img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  object-position: center top; /* Mostra o topo da imagem, ideal para rosto */
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
+    .noticia img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
 
     .noticia h4 {
       color: #0057b8;
@@ -171,23 +172,23 @@
     </div>
   </header>
 
-  <!-- Colunistas -->
+  <!-- Colunistas com bandeiras -->
   <section class="colunistas">
     <div class="colunista">
-      <img src="https://via.placeholder.com/60" alt="Colunista 1">
-      <p><strong>Bisexualidade</strong><br>Em meio à rusga com Tarcísio...</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bisexual_Pride_Flag.svg/320px-Bisexual_Pride_Flag.svg.png" alt="Bandeira Bissexual">
+      <p><strong>Bisexualidade</strong><br>Orgulho, cor e visibilidade.</p>
     </div>
     <div class="colunista">
-      <img src="https://www.futbox.com/img/v1/c64/96f/803/8e1/6884ab0cd733ca344b32.png" alt="Bernardo">
-      <p><strong>Bernardo Mello Franco</strong><br>Ministro que amaciou com Bolsonaro...</p>
+      <img src="https://www.futbox.com/img/v1/c64/96f/803/8e1/6884ab0cd733ca344b32.png">
+      <p><strong>Sport Club do Recife</strong><br>O Leão da Ilha, eterno amor.</p>
     </div>
     <div class="colunista">
-      <img src="https://via.placeholder.com/60" alt="Elio">
-      <p><strong>Elio Gaspari</strong><br>Os empresários erraram o alvo</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Logo-ufpe-2-2.jpg">
+      <p><strong>Universidade Federal de Pernambuco</strong><br>Choro, Depressão, Risos, Amigos</p>
     </div>
     <div class="colunista">
-      <img src="https://via.placeholder.com/60" alt="Daniel">
-      <p><strong>Daniel Becker</strong><br>O uso indiscriminado dos antibióticos</p>
+      <img src="https://static.todamateria.com.br/upload/un/ia/uniaosovietica-cke.jpg" alt="LGBT">
+      <p><strong>Orgulho LGBTQIA+</strong><br>Amor, luta e expressão.</p>
     </div>
   </section>
 
@@ -195,11 +196,11 @@
   <main class="container">
     <section class="principal">
       <span class="categoria">Situação agravada</span>
-      <h2>Nota de Esclarecimento: jovem divulga evento para o dia errado e, quando questionada, põe a culpa no TDAH "Confundi as coisas, mas tenho um bom coração"</h2>
+      <h2>Nota de Esclarecimento: jovem divulga evento para o dia errado e, quando questionada, culpa o TDAH: "Confundi as coisas, mas tenho um bom coração"</h2>
       <p>
-        Evento que pretende reunir amigos dos mais diversos ninchos (um total estimado de 15 pessoas) foi divulgado para o dia 08/08/2025, quando, na verdade, acontecerá no dia 09/08/2025, às 15h.
-        O local ainda está sob negociação. Questionada sobre os motivos pelo qual a data de divulgação foi divulgada erroneamente, mulher afirma que
-        <em>"não tomei ritalina, sou uma mulher de coração puro, tudo que eu faço é sem maldade".</em>
+        O evento, que pretende reunir amigos de diversos círculos (um total estimado de 15 pessoas), foi inicialmente divulgado para o dia 08/08/2025. No entanto, acontecerá no dia <strong>09/08/2025, às 15h</strong>. O local ainda está sendo definido. Mas, segundo apuração dos bastidores, há um <b><em> rumor que o Piva's Grill e o Mamute Beer </em></b> estão sendo considerados nas apurações.
+        <br> Questionada sobre o erro na divulgação, a organizadora declarou:
+        <em>"Não tomei Ritalina, sou uma mulher de coração puro. Tudo que eu faço é sem maldade."</em>
       </p>
     </section>
 
@@ -209,32 +210,38 @@
     </section>
 
     <!-- Notícias secundárias -->
+        <!-- Notícias secundárias -->
     <section class="noticias-secundarias">
       <div class="noticia">
         <h4>Amante de Sinuca, conversa de bar, cerveja gelada e decisões duvidosas.</h4>
         <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250128_183228.jpg?raw=true" alt="Sinuca">
         <p>Desde 2023, após descobrir o <em><strong>Bar do Pinto</strong></em> com o meu então conhecido de Twitter, - que viria a se tornar um grande amigo e confidente - Gilberto (vulgo <em>Tigrinho da UFPE</em>),
-         adiquiri um sentimento de amor e familiaridade por aquele ambiente, não pela estrutura, obviamente, mas pelas possibilidades, diversidade de pessoas e conversas.  <br> <br> Mentir para desconhecidos enquanto tomo 
-         uma cerveja gelada, converso com os donos do bar e jogo sinuca com os meus amigos? Paraíso. Amo aquele lugar, exceto, é óbvio, nas sextas.... MALDITA SEJA A SUPERLOTAÇÃO E O TIKTOK!!!! <br> <br>
+         adiquiri um sentimento de amor e familiaridade por aquele ambiente, não pela estrutura, obviamente, mas pelas possibilidades, 
+         diversidade de pessoas e conversas.<br> <br> Por incrível que pareça, um pega-bebo na Várzea mudou a minha vida.   <br> <br> ( ÓBVIO que mentir para desconhecidos enquanto tomo 
+         uma cerveja gelada, converso com os donos do bar e jogo sinuca com os meus amigos seria um PARAÍSO pra mim. FELIZ NO SIMPLES. Amo aquele lugar, exceto, é óbvio, nas sextas.... MALDITA SEJA A SUPERLOTAÇÃO E O TIKTOK!!!! <br> <br>
          <b><em>Sair de alguma aula > encontrar os amigos no bar do pinto > sinuca + cerveja > rua da feira > caldinho em Dani</em></b>
         </p>
       </div>
   <div class="noticia">
         <h4>A Prisão do Inconsciente e a Coersão Social </h4>
         <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/DSC00935.JPG?raw=true" alt="Imagem 4">
-        <p>Este ano começou de forma átipica. No mundo, apenas um grupo seleto sabe do que estou falando. Não me arrependo. Mas teria outras formas de fazer o que fiz, talvez com um pouco mais de emoção e livre das amarras conscientes, inconcientes e sociais.</p>
-      </div>
+        <p> Analisando os fatos desse ano, acredito que ele está no top3 de anos em que eu mais vivi, e por viver, entenda os acontecimentos de todo tipo de sorte. Do dia 1/1/2025 até hoje
+            o que eu fiz, vi e vivi não foi brincadeira. E tá tudo bem, sou uma mulher de coração bom que só quer aproveitar o máximo.<br><br>Me arrependo de certas coisas? OLD QUE SIM!!!! 
+            Mas o meu maior arrependimento é não ter feito tudo o que quis, por conta das amarras sociais, que, embora sejam invísiveis no laço, são perceptíveis nas ações...<br><br>
+            KKKKKKKKKK em síntese, aprendi que é necessário meter o louco mesmo e não recalcar as coisas (ver sob uma perspectiva psicanalítica)
+        
+      </div> 
       <div class="noticia">
         <h4>Ano de Conquistas</h4>
         <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/ULI_9843.JPG?raw=true" alt="Ano de conquistas">
-        <p>Durante esses vinte e tantos anos existindo, muitas coisas me ocorreram. Desde que entrei na UFPE, tudo se potencializou: amizades incríveis,
+        <p>Durante esses vinte e tantos anos existindo, muitas coisas me ocorreram.Mas, desde que entrei na UFPE, tudo se potencializou (pro bem ou pro mal)
           romances caóticos, amores platônicos e uma carreira nascendo aos poucos.
         </p>
       </div>
      
 
       <div class="noticia">
-        <h4>Estados Unidos</h4>
+        <h4>O baratino nunca pode acabar!!!</h4>
         <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250118_172417.jpg?raw=true" alt="Imagem 4">
         <p>Pesquisas mostram queda do apoio à política migratória de Trump.</p>
       </div>
