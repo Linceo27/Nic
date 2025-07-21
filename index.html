@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NOTÍCIAS DA NIC</title>
+  <title>NIC NEWS</title>
   <style>
     body {
       font-family: Georgia, serif;
@@ -15,29 +15,25 @@
     }
 
     .menu-topo {
-      background-color: #001f5e;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 30px;
-    }
+  background-color: #001f5e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  position: relative;
+}
 
-    .menu-esquerda, .menu-direita {
-      flex: 1;
-    }
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
 
-    .logo {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      flex: 1;
-    }
-
-    .menu-direita {
-      text-align: right;
-      font-size: 0.9rem;
-    }
+.menu-direita {
+  position: absolute;
+  right: 30px;
+}
 
     .assine {
       background: yellow;
@@ -48,28 +44,61 @@
       cursor: pointer;
     }
 
+    .botao-modal {
+      background: #ff4081;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      animation: piscar 1.5s infinite;
+      font-weight: bold;
+    }
+
+    @keyframes piscar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Patrocínio */
     .colunistas {
       display: flex;
-      justify-content: space-around;
-      background-color: white;
-      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+      background: linear-gradient(to right, #ffffff, #f0f0f0);
       border-bottom: 1px solid #ccc;
+    }
+
+    .colunistas h3 {
+      width: 100%;
+      text-align: center;
+      font-size: 1.6rem;
+      color: #001f5e;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
     }
 
     .colunista {
       text-align: center;
-      width: 20%;
+      max-width: 150px;
       font-size: 0.85rem;
     }
 
     .colunista img {
-      width: 100%;
-      max-width: 80px;
-      height: auto;
-      border-radius: 6px;
-      margin-bottom: 8px;
-      object-fit: contain;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      height: 80px;
+      width: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 2px solid #001f5e33;
+    }
+
+    .colunista p {
+      font-size: 0.85rem;
+      color: #222;
+      margin: 0 auto;
     }
 
     .container {
@@ -99,13 +128,20 @@
       color: #444;
     }
 
+    .localizacao {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #333;
+      margin: 20px auto;
+    }
+
     .destaque {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-top: 30px;
       border-bottom: 1px solid #ccc;
-      padding-bottom: 30px;
+      padding-bottom: 10px;
       text-align: center;
     }
 
@@ -116,6 +152,14 @@
       border-radius: 10px;
       margin-top: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .creditos {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 10px;
+      margin-bottom: 30px;
     }
 
     .noticias-secundarias {
@@ -156,102 +200,178 @@
       font-size: 0.9rem;
       color: #333;
     }
+
+    .titulo-subtextos {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #001f5e;
+      margin: 60px 0 20px;
+      border-bottom: 2px solid #001f5e;
+      padding-bottom: 5px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-conteudo {
+      background-color: #fff;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .fechar {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      color: #001f5e;
+    }
+
+    .modal ul {
+      padding-left: 20px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Menu Topo -->
-  <header>
-    <div class="menu-topo">
-      <div class="menu-esquerda">Menu</div>
-      <div class="logo">NOTÍCIAS DA NIC</div>
-      <div class="menu-direita">
-        <button class="assine">ASSINE</button>
-        <span>Olá, Nicole Gomes...</span>
-      </div>
+<header>
+  <div class="menu-topo">
+    <div class="logo"> NIC NEWS</div>
+    <div class="menu-direita">
+      <button class="botao-modal" id="abrirModal">Informações sobre o evento</button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- Colunistas com bandeiras -->
-  <section class="colunistas">
-    <div class="colunista">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bisexual_Pride_Flag.svg/320px-Bisexual_Pride_Flag.svg.png" alt="Bandeira Bissexual">
-      <p><strong>Bisexualidade</strong><br>Orgulho, cor e visibilidade.</p>
-    </div>
-    <div class="colunista">
-      <img src="https://www.futbox.com/img/v1/c64/96f/803/8e1/6884ab0cd733ca344b32.png">
-      <p><strong>Sport Club do Recife</strong><br>O Leão da Ilha, eterno amor.</p>
-    </div>
-    <div class="colunista">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Logo-ufpe-2-2.jpg">
-      <p><strong>Universidade Federal de Pernambuco</strong><br>Choro, Depressão, Risos, Amigos</p>
-    </div>
-    <div class="colunista">
-      <img src="https://static.todamateria.com.br/upload/un/ia/uniaosovietica-cke.jpg" alt="LGBT">
-      <p><strong>Orgulho LGBTQIA+</strong><br>Amor, luta e expressão.</p>
-    </div>
+<!-- Modal -->
+<div id="modalEvento" class="modal">
+  <div class="modal-conteudo">
+    <span class="fechar" id="fecharModal">&times;</span>
+    <h2>Informações sobre o Evento</h2>
+    <ul>
+      <li><strong>Horário:</strong> <br><strong>Início:</strong> 15h <br> <strong>Término:</strong> KKKKKKKK</li>
+      <li><strong>Data:</strong> 09/08/2025</li>
+      <li><strong>Endereço:</strong> A definir (rumores: Piva's Grill ou Mamute Beer)</li>
+      <li><strong>Roteiro de After:</strong> Só Deus sabe</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const abrirModal = document.getElementById("abrirModal");
+  const modal = document.getElementById("modalEvento");
+  const fecharModal = document.getElementById("fecharModal");
+
+  abrirModal.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  fecharModal.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<!-- Patrocínio -->
+<section class="colunistas">
+  <h3>PATROCÍNIO</h3>
+  <div class="colunista">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bisexual_Pride_Flag.svg/320px-Bisexual_Pride_Flag.svg.png" alt="Bandeira Bissexual">
+    <p><strong>Bisexualidade</strong><br>Orgulho, cor e visibilidade.</p>
+  </div>
+   <div class="colunista">
+    <img src="https://uploads.metroimg.com/wp-content/uploads/2022/04/29193526/tasha-tracie-gloriagroove-4.jpg" alt="Bandeira Bissexual">
+    <p><strong>Tasha e Tracie</strong><br>As mais Brabas.</p>
+  </div>
+  <div class="colunista">
+    <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250116_201102.jpg?raw=true" alt="Bar do Pinto">
+    <p><strong>Bar do Pinto</strong><br>Ambiente familiar.</p>
+  </div>
+  <div class="colunista">
+    <img src="https://pbs.twimg.com/profile_images/1752546556325011456/1XcK8hjA_400x400.jpg" alt="Sport">
+    <p><strong>Sport Club do Recife</strong><br>O Leão da Ilha, eterno amor.</p>
+  </div>
+  <div class="colunista">
+    <img src="https://cdn-images.dzcdn.net/images/cover/2ac1f7aacde0c7fc3703c4d2f24cd9b6/0x1900-000000-80-0-0.jpg" alt="Sport">
+    <p><strong>Ebony</strong><br>Modo avião.</p>
+  </div>
+  <div class="colunista">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Logo-ufpe-2-2.jpg" alt="UFPE">
+    <p><strong>Universidade Federal de Pernambuco</strong><br>Choro, depressão, risos, amigos.</p>
+  </div>
+  <div class="colunista">
+    <img src="https://static.todamateria.com.br/upload/co/mu/comunismo-og.jpg" alt="LGBT">
+    <p><strong>PCC</strong><br>Partido dos Cachaceiros Comunistas.</p>
+  </div>
+  <div class="colunista">
+    <img src="https://guiadacervejabr.com/wp-content/uploads/2019/04/clubeno1-e1554290798172.jpg" alt="Cerveja">
+    <p><strong>Brahma Chopp+</strong><br>Geladinha? Me dê, papai.</p>
+  </div>
+</section>
+
+<!-- Conteúdo -->
+<main class="container">
+  <section class="principal">
+    <span class="categoria">Situação agravada</span>
+    <h2>Nota de Esclarecimento: jovem divulga evento para o dia errado e, quando questionada, culpa o TDAH: "Confundi as coisas, mas tenho um bom coração"</h2>
+    <p>O evento, que pretende reunir amigos de diversos círculos (um total estimado de 15 pessoas), foi inicialmente divulgado para o dia 08/08/2025. No entanto, acontecerá no dia <strong>09/08/2025, às 15h</strong>. O local ainda está sendo definido. Segundo apuração dos bastidores, há um <b><em>rumor que o Piva's Grill e o Mamute Beer</em></b> estão sendo considerados nas apurações.<br><br> Questionada sobre o erro na divulgação, a organizadora declarou:
+         <em>"Confundi com o 8/8 da Shoppee, a vida é assim, todo mundo erraaaaaa. Sou uma mulher de coração puro, erro tentando acertar, bjos hahay"</em></p>
+           <div class="localizacao">📍 HAHAY - CAÇOTE CITY</div>
   </section>
 
-  <!-- Conteúdo Principal -->
-  <main class="container">
-    <section class="principal">
-      <span class="categoria">Situação agravada</span>
-      <h2>Nota de Esclarecimento: jovem divulga evento para o dia errado e, quando questionada, culpa o TDAH: "Confundi as coisas, mas tenho um bom coração"</h2>
-      <p>
-        O evento, que pretende reunir amigos de diversos círculos (um total estimado de 15 pessoas), foi inicialmente divulgado para o dia 08/08/2025. No entanto, acontecerá no dia <strong>09/08/2025, às 15h</strong>. O local ainda está sendo definido. Mas, segundo apuração dos bastidores, há um <b><em> rumor que o Piva's Grill e o Mamute Beer </em></b> estão sendo considerados nas apurações.
-        <br> Questionada sobre o erro na divulgação, a organizadora declarou:
-        <em>"Não tomei Ritalina, sou uma mulher de coração puro. Tudo que eu faço é sem maldade."</em>
-      </p>
-    </section>
 
-    <!-- Imagem destaque -->
-    <section class="destaque">
-      <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/DSC00930.JPG?raw=true" alt="Nota de esclarecimento">
-    </section>
+  <section class="destaque">
+    <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/DSC00930.JPG?raw=true" alt="Nota de esclarecimento">
+  </section>
 
-    <!-- Notícias secundárias -->
-        <!-- Notícias secundárias -->
-    <section class="noticias-secundarias">
-      <div class="noticia">
-        <h4>Amante de Sinuca, conversa de bar, cerveja gelada e decisões duvidosas.</h4>
-        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250128_183228.jpg?raw=true" alt="Sinuca">
-        <p>Desde 2023, após descobrir o <em><strong>Bar do Pinto</strong></em> com o meu então conhecido de Twitter, - que viria a se tornar um grande amigo e confidente - Gilberto (vulgo <em>Tigrinho da UFPE</em>),
-         adiquiri um sentimento de amor e familiaridade por aquele ambiente, não pela estrutura, obviamente, mas pelas possibilidades, 
-         diversidade de pessoas e conversas.<br> <br> Por incrível que pareça, um pega-bebo na Várzea mudou a minha vida.   <br> <br> ( ÓBVIO que mentir para desconhecidos enquanto tomo 
-         uma cerveja gelada, converso com os donos do bar e jogo sinuca com os meus amigos seria um PARAÍSO pra mim. FELIZ NO SIMPLES. Amo aquele lugar, exceto, é óbvio, nas sextas.... MALDITA SEJA A SUPERLOTAÇÃO E O TIKTOK!!!! <br> <br>
-         <b><em>Sair de alguma aula > encontrar os amigos no bar do pinto > sinuca + cerveja > rua da feira > caldinho em Dani</em></b>
-        </p>
-      </div>
-  <div class="noticia">
-        <h4>A Prisão do Inconsciente e a Coersão Social </h4>
-        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/DSC00935.JPG?raw=true" alt="Imagem 4">
-        <p> Analisando os fatos desse ano, acredito que ele está no top3 de anos em que eu mais vivi, e por viver, entenda os acontecimentos de todo tipo de sorte. Do dia 1/1/2025 até hoje
-            o que eu fiz, vi e vivi não foi brincadeira. E tá tudo bem, sou uma mulher de coração bom que só quer aproveitar o máximo.<br><br>Me arrependo de certas coisas? OLD QUE SIM!!!! 
-            Mas o meu maior arrependimento é não ter feito tudo o que quis, por conta das amarras sociais, que, embora sejam invísiveis no laço, são perceptíveis nas ações...<br><br>
-            KKKKKKKKKK em síntese, aprendi que é necessário meter o louco mesmo e não recalcar as coisas (ver sob uma perspectiva psicanalítica)
-        
-      </div> 
-      <div class="noticia">
-        <h4>Ano de Conquistas</h4>
-        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/ULI_9843.JPG?raw=true" alt="Ano de conquistas">
-        <p>Durante esses vinte e tantos anos existindo, muitas coisas me ocorreram.Mas, desde que entrei na UFPE, tudo se potencializou (pro bem ou pro mal)
-          romances caóticos, amores platônicos e uma carreira nascendo aos poucos.
-        </p>
-      </div>
-     
+  <div class="creditos">
+    Fotos por: <strong>Aleksa, vulgo "me dê papai".</strong>, <strong>Arquivo pessoal</strong> e <strong>câmera perdida em festas</strong>.
+  </div>
 
-      <div class="noticia">
-        <h4>O baratino nunca pode acabar!!!</h4>
-        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250118_172417.jpg?raw=true" alt="Imagem 4">
-        <p>Pesquisas mostram queda do apoio à política migratória de Trump.</p>
-      </div>
-
-      <div class="noticia">
-        <h4>Presidente da Alerj</h4>
-        <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250301_232333.jpg?raw=true" alt="Imagem 5">
-        <p>Investigação liga Baccelar a 'aluguel' de uma prefeitura.</p>
-      </div>
-    </section>
-  </main>
+  <h2 class="titulo-subtextos">Alguns subtextos de 2025</h2>
+  <section class="noticias-secundarias">
+    <div class="noticia">
+      <h4>Amante de Sinuca, conversa de bar, cerveja gelada e decisões duvidosas.</h4>
+      <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250128_183228.jpg?raw=true" alt="Sinuca">
+    </div>
+    <div class="noticia">
+      <h4>A Prisão do Inconsciente e a Coerção Social</h4>
+      <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/DSC00935.JPG?raw=true" alt="Imagem 4">
+    </div>
+    <div class="noticia">
+      <h4>Ano de Conquistas e muito HAHAY</h4>
+      <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/ULI_9843.JPG?raw=true" alt="Ano de conquistas">
+    </div>
+    <div class="noticia">
+      <h4>O baratino nunca pode acabar!!!</h4>
+      <img src="https://github.com/Linceo27/ImagesSesTO/blob/main/20250118_172417.jpg?raw=true" alt="Imagem 4">
+    </div>
+  </section>
+</main>
 </body>
 </html>
